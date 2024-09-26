@@ -1,4 +1,9 @@
 /tmp
 /node_modules
-package.json
-package-lock.json
+#package.json
+#package-lock.json
+#
+#/dist
+#/src
+#tsconfig.json
+#vite.config.js

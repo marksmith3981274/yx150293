@@ -1,0 +1,38 @@
+
+
+
+
+name: GitHub Actions Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        name: Check out code
+
+      - name: 'Login to GitHub Container Registry'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{github.actor}}
+          password: ${{secrets.GH_TOKEN}}
+
+      - name: 'Build Inventory Image'
+        run: |
+          docker build . --tag ghcr.io/marksmith3981274/yx150293:latest --tag ghcr.io/marksmith3981274/yx150293:0.0.555
+          docker push ghcr.io/marksmith3981274/yx150293:latest
+          docker push ghcr.io/marksmith3981274/yx150293:0.0.555
+
+
+
+
+
+
+
+
+
+
+
+
